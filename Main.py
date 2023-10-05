@@ -12,6 +12,84 @@ constants
 """
 
 
+def decrypt(string):
+    """
+    :param string:
+    :return:
+    """
+    decrypt_dict = {
+        "56": "A",
+        "57": "B",
+        "58": "C",
+        "59": "D",
+        "40": "E",
+        "41": "F",
+        "42": "G",
+        "43": "H",
+        "44": "I",
+        "45": "J",
+        "46": "K",
+        "47": "L",
+        "48": "M",
+        "49": "N",
+        "60": "O",
+        "61": "P",
+        "62": "Q",
+        "63": "R",
+        "64": "S",
+        "65": "T",
+        "66": "U",
+        "67": "V",
+        "68": "W",
+        "69": "X",
+        "10": "Y",
+        "11": "Z",
+        "12": "a",
+        "13": "b",
+        "14": "c",
+        "15": "d",
+        "16": "e",
+        "17": "f",
+        "18": "g",
+        "19": "h",
+        "30": "i",
+        "31": "j",
+        "32": "k",
+        "33": "l",
+        "34": "m",
+        "35": "n",
+        "36": "o",
+        "37": "p",
+        "38": "q",
+        "39": "r",
+        "90": "s",
+        "91": "t",
+        "92": "u",
+        "93": "v",
+        "94": "w",
+        "95": "x",
+        "96": "y",
+        "97": "z",
+        "98": " ",
+        "99": ",",
+        "100": ".",
+        "101": ";",
+        "102": "'",
+        "103": "?",
+        "104": "!",
+        "105": ":"
+    }
+    temp = ""
+    decrypted_line = ""
+    for i in string:
+        if i != " ":
+            temp += i
+        elif i == " ":
+            decrypted_line += decrypt_dict[temp]
+            temp = ""
+    return decrypted_line
+
+
 def encrypt(string):
     """
     :param string:
@@ -54,15 +132,15 @@ def encrypt(string):
         "g": 18,
         "h": 19,
         "i": 30,
-        "j": 30,
-        "k": 30,
-        "l": 30,
-        "m": 30,
-        "n": 30,
-        "o": 30,
-        "p": 30,
-        "q": 30,
-        "r": 30,
+        "j": 31,
+        "k": 32,
+        "l": 33,
+        "m": 34,
+        "n": 35,
+        "o": 36,
+        "p": 37,
+        "q": 38,
+        "r": 39,
         "s": 90,
         "t": 91,
         "u": 92,
@@ -78,7 +156,8 @@ def encrypt(string):
         "'": 102,
         "?": 103,
         "!": 104,
-        ":": 105
+        ":": 105,
+        "": ""
     }
     file = open("encrypted_msg.txt", "w")
     for i in string:
@@ -90,9 +169,12 @@ def main():
     """
     main function
     """
-    encrypt("Don't waste your love on somebody, who doesn't value it.")
+    string = input("type a message to encrypt / decrypt")
+    encrypt(string)
     file = open("encrypted_msg.txt", "r")
-    print(file.read())
+    string = file.read()
+    print(string)
+    print(decrypt(string))
 
 
 if __name__ == '__main__':
