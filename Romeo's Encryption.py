@@ -12,6 +12,22 @@ constants
 """
 
 
+def decryptencrypt(string):
+    if string == "decrypt":
+        file = open("encrypted_msg.txt", "r")
+        decrypted_text = file.read()
+        print(decrypted_text)
+        print(decrypt(decrypted_text))
+        decryptencrypt(input("decrypt or encrypt (dont decrypt unless you have encrypted something)"))
+    elif string == "encrypt":
+        string = input("type a message to encrypt")
+        encrypt(string)
+        decryptencrypt(input("decrypt or encrypt (dont decrypt unless you have encrypted something)"))
+    else:
+        print("invalid command, try again")
+        decryptencrypt(input("decrypt or encrypt (dont decrypt unless you have encrypted something)"))
+
+
 def decrypt(string):
     """
     :param string:
@@ -169,12 +185,11 @@ def main():
     """
     main function
     """
-    string = input("type a message to encrypt / decrypt")
+    decryptencrypt(input("decrypt or encrypt (dont decrypt unless you have encrypted something)"))
+
+
+    string = input("type a message to encrypt")
     encrypt(string)
-    file = open("encrypted_msg.txt", "r")
-    string = file.read()
-    print(string)
-    print(decrypt(string))
 
 
 if __name__ == '__main__':
