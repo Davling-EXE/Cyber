@@ -3,29 +3,20 @@ Author: Nadav Cohen
 Date: 10/5/2023
 Description: helping romeo decrypt and encrypt his letters
 """
-import logging
+import sys
 import os
+import logging
 
 
 """
 constants
 """
 
-
-def decryptencrypt(string):
-    if string == "decrypt":
-        file = open("encrypted_msg.txt", "r")
-        decrypted_text = file.read()
-        print(decrypted_text)
-        print(decrypt(decrypted_text))
-        decryptencrypt(input("decrypt or encrypt (dont decrypt unless you have encrypted something)"))
-    elif string == "encrypt":
-        string = input("type a message to encrypt")
-        encrypt(string)
-        decryptencrypt(input("decrypt or encrypt (dont decrypt unless you have encrypted something)"))
-    else:
-        print("invalid command, try again")
-        decryptencrypt(input("decrypt or encrypt (dont decrypt unless you have encrypted something)"))
+LOG_FORMAT = '%(levelname)s | %(asctime)s | %(processName)s | %(message)s'
+LOG_LEVEL = logging.DEBUG
+LOG_DIR = 'log'
+LOG_FILE = LOG_DIR + '/logger.log'
+FILE_PATH = r"C:\Users\nadav\OneDrive\Desktop\Cyber Workspace\encrypted_msg.txt"
 
 
 def decrypt(string):
@@ -181,16 +172,40 @@ def encrypt(string):
     file.close()
 
 
+def file_read(file_path):
+    """
+    reads the file
+    :return: returns file contents
+    :rtype: string
+    """
+    try:
+        with open(file_path, "r") as file:
+            text = file.read()
+            logging.debug(f"file at: {file_path} was read successfully")
+            return text
+    except OSError:
+        print("error while trying to read file")
+        logging.error(f"error while trying to read file at {file_path}")
+    return None
+
+
 def main():
     """
     main function
     """
-    decryptencrypt(input("decrypt or encrypt (dont decrypt unless you have encrypted something)"))
+    if sys.argv[1] == 'encrypt':
+        encrypt(input('please enter a love letter please: '))
 
-
-    string = input("type a message to encrypt")
-    encrypt(string)
+    elif sys.argv[1] == 'decrypt':
+        decrypted_text = file_read(FILE_PATH)
+        print(decrypted_text)
+        print(decrypt(decrypted_text))
 
 
 if __name__ == '__main__':
+    if not os.path.isdir(LOG_DIR):
+        os.makedirs(LOG_DIR)
+    logging.basicConfig(format=LOG_FORMAT, filename=LOG_FILE, level=LOG_LEVEL)
+    if sys.argv[1] == 'decrypt':
+        assert not file_read(FILE_PATH) == '', "there is nothing to decrypt"
     main()
