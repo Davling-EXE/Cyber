@@ -13,11 +13,12 @@ def valid_command(string):
 
 
 def main():
-    my_socket = socket.socket()
 
-    try:
-        my_socket.connect((SERVER_IP, PORT))
-        while True:
+    while True:
+        try:
+            my_socket = socket.socket()
+            my_socket.connect((SERVER_IP, PORT))
+
             user_input = input("input a command ")
             if valid_command(user_input):
                 my_socket.send(user_input.encode())
@@ -25,11 +26,11 @@ def main():
             else:
                 print("Invalid command")
 
-    except socket.error as err:
-        print(err)
+        except socket.error as err:
+            print(err)
 
-    finally:
-        my_socket.close()
+        finally:
+            my_socket.close()
 
 
 if __name__ == '__main__':
