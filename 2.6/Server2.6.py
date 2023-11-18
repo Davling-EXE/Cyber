@@ -32,6 +32,7 @@ def main():
                 elif user_input == "RAND":
                     comm_socket.send(str(random.randint(1, 10)).encode())
                 elif user_input == "EXIT":
+                    comm_socket.send("client socket disconnected".encode())
                     comm_socket.close()
             except socket.error as msg:
                 print('client socket disconnected- ' + str(msg))
@@ -41,6 +42,27 @@ def main():
         print('failed to open server socket - ' + str(msg))
     finally:
         server_socket.close()
+
+def main2():
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        server_socket.bind((IP, PORT))
+        server_socket.listen(QUEUE_SIZE)
+        # endless loop to receive client after client
+        while True:
+            print('server is up and running')
+            comm_socket, client_address = server_socket.accept()
+            try:
+                comm_socket.send(comm_socket.recv(MAX_PACKET))
+            except socket.error as msg:
+                print('client socket disconnected- ' + str(msg))
+            finally:
+                comm_socket.close()
+    except socket.error as msg:
+        print('failed to open server socket - ' + str(msg))
+    finally:
+        server_socket.close()
+
 
 
 if __name__ == '__main__':
