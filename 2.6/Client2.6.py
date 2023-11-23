@@ -4,18 +4,10 @@ date   - 03/11/23
 exercise 2.6 client
 """
 import socket
-import logging
-import os
 
 """
 constants
 """
-
-LOG_FORMAT = '%(levelname)s | %(asctime)s | %(processName)s | %(message)s'
-LOG_LEVEL = logging.DEBUG
-LOG_DIR = 'log'
-LOG_FILE = LOG_DIR + '/logger.log'
-FILE_PATH = r"C:\Users\nadav\OneDrive\Desktop\Cyber Workspace\encrypted_msg.txt"
 
 SERVER_IP = "127.0.0.1"
 PORT = 8820
@@ -51,9 +43,6 @@ def main():
 
 
 if __name__ == '__main__':
-    if not os.path.isdir(LOG_DIR):
-        os.makedirs(LOG_DIR)
-    logging.basicConfig(format=LOG_FORMAT, filename=LOG_FILE, level=LOG_LEVEL)
     assert valid_command("TIME")
     assert valid_command("NAME")
     assert valid_command("RAND")
