@@ -8,28 +8,30 @@ import os
 import shutil
 import subprocess
 from PIL import ImageGrab
+import psutil
 
 """
 constants
 """
 
-def dir_command(dir):
+
+def dir_command(main_dir):
     """
     returns a list with all the items in the given address
-    :param dir:
+    :param main_dir:
     :return file_list:
     """
-    file_list = glob.glob(dir + r'\*.*')
+    file_list = glob.glob(main_dir + r'\*.*')
     return file_list
 
 
-def delete_command(dir):
+def delete_command(main_dir):
     """
     deletes the item in the given address
-    :param dir:
+    :param main_dir:
     :return:
     """
-    os.remove(dir)
+    os.remove(main_dir)
 
 
 def copy_command(to_dir, from_dir):
@@ -46,19 +48,22 @@ def copy_command(to_dir, from_dir):
     f = open(to_dir, "r")
     to_contents = f.read()
     f.close()
-    if (to_contents == from_contents):
+    if to_contents == from_contents:
         return True
     else:
         return False
 
 
-def execute_command (dir):
+def execute_command(main_dir):
     """
     executes an exe file at the given address
-    :param dir:
+    :param main_dir:
     :return:
     """
-    subprocess.call(dir)
+    if subprocess.call(main_dir) == 0:
+        return True
+    else:
+        return False
 
 
 def screenshot_command():
