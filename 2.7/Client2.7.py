@@ -35,7 +35,7 @@ def main():
             if data == "Error":
                 print("Error")
             else:
-                print("The server sent " + data)
+                print(data)
             send_message = input("enter a command ")
     except socket.error as err:
         print(err)
