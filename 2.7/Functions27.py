@@ -111,4 +111,7 @@ if __name__ == '__main__':
     assert execute_command(r"C:\Program Files\Notepad++\notepad++.exe")
     screenshot_command()
     assert os.path.exists(r"C:\CyberWorkspace\2.7\screenshot.jpg")
+    if not os.path.isdir(LOG_DIR):
+        os.makedirs(LOG_DIR)
+    logging.basicConfig(format=LOG_FORMAT, filename=LOG_FILE, level=LOG_LEVEL)
     main()

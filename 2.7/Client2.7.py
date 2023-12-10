@@ -9,6 +9,7 @@ import base64
 from PIL import Image
 from io import BytesIO
 import logging
+import os
 
 """
 constants
@@ -28,6 +29,7 @@ def main():
     my_socket = socket.socket()
     try:
         raw_input = input("enter a command ")
+        logging.info("trying to connect to server")
         my_socket.connect((SERVER_IP, PORT))
 
         while raw_input != "EXIT":
@@ -53,11 +55,17 @@ def main():
                 else:
                     print(data)
             raw_input = input("enter a command ")
+        logging.info("program terminated by user")
     except socket.error as err:
+        logging.error("failed to connect to server")
         print(err)
-
-    my_socket.close()
+    finally:
+        logging.debug("closing the socket")
+        my_socket.close()
 
 
 if __name__ == '__main__':
+    if not os.path.isdir(LOG_DIR):
+        os.makedirs(LOG_DIR)
+    logging.basicConfig(format=LOG_FORMAT, filename=LOG_FILE, level=LOG_LEVEL)
     main()
