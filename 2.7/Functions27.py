@@ -85,24 +85,25 @@ def get_photo_path():
 
 def send_photo_command():
     """
-    send
-    :return:
+    send the photo to the client from the server
+    :return: a base 64 encoded string of the image
     """
     with open('screenshot.jpg', 'rb') as img:
         return base64.b64encode(img.read())
 
 
 def main():
-    file_list = dir_command(r'C:\WS')
-    for i in file_list:
-        print(i)
-    delete_command(r'C:\Users\nadav\OneDrive\Desktop\to_copy.txt')
-    to_dir = r"C:\Users\nadav\OneDrive\Desktop\to_copy.txt"
-    from_dir = r"C:\Users\nadav\OneDrive\Desktop\from_copy.txt"
-    print(copy_command(to_dir, from_dir))
-    execute_command(r"C:\Program Files\Notepad++\notepad++.exe")
-    screenshot_command()
+    print("all good")
 
 
 if __name__ == '__main__':
+    assert dir_command(r'C:\WS') == ['C:\\WS\\DOSBox 0.74-3.lnk', 'C:\\WS\\Notepad++.lnk']
+    to_dir_assert = r"C:\CyberWorkspace\2.7\to_copy"
+    from_dir_assert = r"C:\CyberWorkspace\2.7\from_copy"
+    assert copy_command(to_dir_assert, from_dir_assert)
+    delete_command(r'C:\CyberWorkspace\2.7\to_copy')
+    assert not os.path.exists(r'C:\CyberWorkspace\2.7\to_copy')
+    assert execute_command(r"C:\Program Files\Notepad++\notepad++.exe")
+    screenshot_command()
+    assert os.path.exists(r"C:\CyberWorkspace\2.7\screenshot.jpg")
     main()
