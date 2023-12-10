@@ -4,8 +4,6 @@ date   - 03/11/23
 exercise 2.7 client
 """
 
-import base64
-
 """
 constants
 """
