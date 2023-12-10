@@ -44,7 +44,7 @@ def main():
             logging.debug("executing command")
             Functions27.delete_command(data[7:])
             if os.path.exists(data[7:]):
-                logging.info(f"command executed unsuccessfully")
+                logging.info("command executed unsuccessfully")
                 reply = "didn't delete"
             else:
                 reply = data[7:] + " deleted"
@@ -61,15 +61,15 @@ def main():
             to_path = both_path[dir_length+1:]
             logging.debug("executing command")
             if Functions27.copy_command(to_path, from_path):
-                logging.info(f"command executed successfully")
+                logging.info("command executed successfully")
                 reply = "file at " + from_path + " copied to " + to_path
             else:
-                logging.info(f"command executed unsuccessfully")
+                logging.info("command executed unsuccessfully")
                 reply = "copy failed"
         elif data[:7] == "EXECUTE":
             logging.debug("executing command")
             if Functions27.execute_command(data[8:]):
-                logging.info(f"command executed successfully")
+                logging.info("command executed successfully")
                 reply = "program executed"
             else:
                 logging.info(f"command executed unsuccessfully")
@@ -79,10 +79,10 @@ def main():
             Functions27.screenshot_command()
             screenshot_dir = Functions27.get_photo_path()
             if os.path.exists(screenshot_dir) and os.path.getsize(screenshot_dir) > 100000:
-                logging.info(f"command executed unsuccessfully")
+                logging.info("command executed unsuccessfully")
                 reply = "screenshot saved at " + screenshot_dir
             else:
-                logging.info(f"command executed unsuccessfully")
+                logging.info("command executed unsuccessfully")
                 reply = "screenshot failed "
         elif data[:10] == "SEND_PHOTO":
             logging.debug("executing command")

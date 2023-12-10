@@ -1,0 +1,11 @@
+this protocol has 4 function, although only 2 actual uses.
+the first "use" is create_message and create_message_byte.
+what these two do is add the length of the message as the first 4 or 7 bytes of the message,
+depending on if create_message or  create_message_byte is used.
+the next "use" is get_message and get_message_byte.
+these two recieve the message from the server or client,
+and extract the original message from the message created by the corrosponding functions
+(create_message_byte to get_message_byte and create_message to get_message).
+the only diffrence between a function and its byte counterpart is:
+the size of thelength (byte being the first 7 bytes and the normal being the first 4)
+and that the byte returns it in a byte string as opposed to a normal one
