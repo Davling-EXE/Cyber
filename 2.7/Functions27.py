@@ -9,11 +9,16 @@ import shutil
 import subprocess
 from PIL import ImageGrab
 import base64
+import logging
 
 """
 constants
 """
 
+LOG_FORMAT = '%(levelname)s | %(asctime)s | %(processName)s | %(message)s'
+LOG_LEVEL = logging.DEBUG
+LOG_DIR = 'log'
+LOG_FILE = LOG_DIR + '/logger.log'
 
 def dir_command(main_dir):
     """

@@ -4,10 +4,15 @@ date   - 03/11/23
 exercise 2.7 client
 """
 
+import logging
+
 """
 constants
 """
-
+LOG_FORMAT = '%(levelname)s | %(asctime)s | %(processName)s | %(message)s'
+LOG_LEVEL = logging.DEBUG
+LOG_DIR = 'log'
+LOG_FILE = LOG_DIR + '/logger.log'
 
 def create_msg(data):
     """

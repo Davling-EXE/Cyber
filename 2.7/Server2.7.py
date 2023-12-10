@@ -7,11 +7,15 @@ import os.path
 import socket
 import Protocol27
 import Functions27
+import logging
 
 """
 constants
 """
-
+LOG_FORMAT = '%(levelname)s | %(asctime)s | %(processName)s | %(message)s'
+LOG_LEVEL = logging.DEBUG
+LOG_DIR = 'log'
+LOG_FILE = LOG_DIR + '/logger.log'
 
 def main():
     server_socket = socket.socket()
@@ -77,4 +81,9 @@ def main():
 
 
 if __name__ == '__main__':
+    if not os.path.isdir(LOG_DIR):
+        os.makedirs(LOG_DIR)
+    logging.basicConfig(format=LOG_FORMAT, filename=LOG_FILE, level=LOG_LEVEL)
+    if sys.argv[1] == 'decrypt':
+        assert not file_read(FILE_PATH) == '', "there is nothing to decrypt"
     main()

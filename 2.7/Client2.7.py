@@ -8,10 +8,16 @@ import socket
 import base64
 from PIL import Image
 from io import BytesIO
+import logging
 
 """
 constants
 """
+
+LOG_FORMAT = '%(levelname)s | %(asctime)s | %(processName)s | %(message)s'
+LOG_LEVEL = logging.DEBUG
+LOG_DIR = 'log'
+LOG_FILE = LOG_DIR + '/logger.log'
 
 SERVER_IP = "127.0.0.1"
 PORT = 8820
