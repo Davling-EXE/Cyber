@@ -15,7 +15,7 @@ def create_msg(data):
     """
     creates a message following the protocol with a length field
     :param data:
-    :return: the message with the length as the first 3 bytes
+    :return: the message with the length as the first 4 bytes
     """
     length = str(len(data))
     zfill_length = length.zfill(4)
