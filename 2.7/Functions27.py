@@ -89,7 +89,7 @@ def send_photo_command():
     :return:
     """
     with open('screenshot.jpg', 'rb') as img:
-        return base64.b64encode(img.read()).decode('utf-8')
+        return base64.b64encode(img.read())
 
 
 def main():

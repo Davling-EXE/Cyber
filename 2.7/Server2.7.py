@@ -24,6 +24,7 @@ def main():
 
     data = (Protocol27.get_msg(client_socket)[1])
     reply = ""
+    reply_byte = b""
 
     while data != "EXIT":
         if data[:3] == "DIR":
@@ -62,11 +63,13 @@ def main():
             else:
                 reply = "screenshot failed "
         elif data[:10] == "SEND_PHOTO":
-            reply = Functions27.send_photo_command()
+            reply_byte = Functions27.send_photo_command()
         else:
             reply = "invalid command"
-
-        client_socket.send(Protocol27.create_msg(reply).encode())
+        if data[:10] == "SEND_PHOTO":
+            client_socket.send(Protocol27.create_msg_byte(reply_byte))
+        else:
+            client_socket.send(Protocol27.create_msg(reply).encode())
         data = Protocol27.get_msg(client_socket)[1]
     client_socket.send(Protocol27.create_msg("Goodbye").encode())
     client_socket.close()

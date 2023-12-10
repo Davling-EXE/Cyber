@@ -5,6 +5,9 @@ exercise 2.7 client
 """
 import Protocol27
 import socket
+import base64
+from PIL import Image
+from io import BytesIO
 
 """
 constants
@@ -15,28 +18,35 @@ PORT = 8820
 MAX_PACKAGE = 1024
 
 
-def valid_command(string):
-    if string == "TIME" or string == "NAME" or string == "RAND" or string == "EXIT":
-        return True
-    else:
-        return False
-
-
 def main():
     my_socket = socket.socket()
     try:
-        send_message = input("enter a command ")
+        raw_input = input("enter a command ")
         my_socket.connect((SERVER_IP, PORT))
 
-        while send_message != "EXIT":
-            send_message = Protocol27.create_msg(send_message)
+        while raw_input != "EXIT":
+            send_message = Protocol27.create_msg(raw_input)
             my_socket.send(send_message.encode())
-            data = Protocol27.get_msg(my_socket)[1]
-            if data == "Error":
-                print("Error")
+            if raw_input == "SEND_PHOTO":
+                try:
+                    data = Protocol27.get_msg_byte(my_socket)[1]
+                    base64str = data.decode()
+                    # Decode the base64 string back to image data
+                    decoded_image = base64.b64decode(base64str)
+
+                    # Create a PIL Image object from the decoded image data
+                    image = Image.open(BytesIO(decoded_image))
+                    image.save('output_image.jpg')
+                    image.show()
+                except "failed to send" as err:
+                    print(err)
             else:
-                print(data)
-            send_message = input("enter a command ")
+                data = Protocol27.get_msg(my_socket)[1]
+                if data == "Error":
+                    print("Error")
+                else:
+                    print(data)
+            raw_input = input("enter a command ")
     except socket.error as err:
         print(err)
 
