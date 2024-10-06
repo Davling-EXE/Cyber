@@ -1,7 +1,17 @@
+"""
+author - nadav cohen
+date   - 05/10/24
+MD5 brute force client
+"""
+
 import threading
 import socket
 import os
 import hashlib
+
+"""
+constants
+"""
 
 SERVER_IP = "127.0.0.1"
 PORT = 8820
@@ -40,7 +50,7 @@ class Client:
 
     def main(self):
         """
-        the main function that starts the client
+        the main function that starts the client and closes it as needed
         :return:
         """
         try:

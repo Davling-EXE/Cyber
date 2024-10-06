@@ -1,7 +1,7 @@
 """
 author - nadav
-date   - 03/11/23
-exercise 2.6 server
+date   - 05/10/24
+MD5 brute force server
 """
 import socket
 import hashlib
@@ -26,6 +26,11 @@ class Server:
         self.solution = "Hasn't found yet"
 
     def handle_client(self, client_socket):
+        """
+        this sends the data to be decoded by the client and the ranges it should check
+        :param client_socket:
+        :return:
+        """
         client_socket.send(self.to_decode.encode())
         while not self.done:
             client_socket.send("0".encode())
@@ -42,11 +47,19 @@ class Server:
         client_socket.send("1".encode())
 
     def recieve_client(self):
+        """
+        handles receiving each client and assigning a thread to handle it
+        :return:
+        """
         while not self.done:
             client_socket, client_address = self.server_socket.accept()
             threading.Thread(target=self.handle_client, args=(client_socket,)).start()
 
     def main(self):
+        """
+        the main that starts the server and closes it when it's done
+        :return:
+        """
         self.server_socket = socket.socket()
         self.server_socket.bind(("0.0.0.0", 8820))
         self.server_socket.listen()
