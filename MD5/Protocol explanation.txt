@@ -1,0 +1,4 @@
+Due to the nature of the assignment, there are set lengths to each message. the first communication is a 32 character long message detailing the things that need to be decoded.
+next it tells the client whether to keep going or not. This is done by either sending 0, keep going, or 1, that its done. if its 0, the client send its state. cont if the client needs new ranges and done if its found the solution.
+if the client continues, the client sends the number of cores and the server sends back a number of ranges equal to the number of cores.
+if the client is done, the client sends the solution to the server. after, the server tells all the clients to stop.
