@@ -17,9 +17,9 @@ QUEUE_SIZE = 1
 
 
 class Server:
-    def __init__(self):
+    def __init__(self, to_decode):
         self.server_socket = None
-        self.to_decode = hashlib.md5(b"0003500000").hexdigest()
+        self.to_decode = to_decode
         self.cur = "0000000000"
         self.lock = threading.Lock()
         self.done = False
@@ -74,5 +74,5 @@ class Server:
 
 
 if __name__ == '__main__':
-    server = Server()
+    server = Server(hashlib.md5(b"0003500000").hexdigest())
     server.main()
