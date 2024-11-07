@@ -1,0 +1,332 @@
+INFO:root:Initializing thread SynchroDatabase
+INFO:root:Setting value: john = 26
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Getting value: john
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing read lock
+INFO:root:Test: Reader blocked by writer
+INFO:root:Setting value: test_key = value
+DEBUG:root:Acquiring write lock
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing write lock
+DEBUG:root:Releasing read lock
+INFO:root:Test: Writer releases read locks
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing read lock
+INFO:root:Setting value: test_key = value
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing write lock
+INFO:root:Test: Concurrent access (reader blocked by writer)
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing read lock
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing read lock
+INFO:root:Setting value: test_key = 0
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 0
+INFO:root:Setting value: test_key = 0
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing read lock
+INFO:root:Setting value: test_key = 0
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 0
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring write lock
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing write lock
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 1
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing read lock
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Setting value: test_key = 1
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 1
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 1
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing read lock
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing write lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Acquiring read lock
+INFO:root:Getting value: test_key
+INFO:root:Setting value: test_key = 1
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 2
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing write lock
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 2
+DEBUG:root:Acquiring read lock
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing write lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 2
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 2
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 3
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 3
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 2
+DEBUG:root:Releasing write lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 3
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing write lock
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 3
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 4
+DEBUG:root:Releasing write lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 4
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing write lock
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 3
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing write lock
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 4
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 4
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing write lock
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 5
+DEBUG:root:Acquiring read lock
+INFO:root:Getting value: test_key
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring write lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 5
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 4
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 6
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+DEBUG:root:Releasing read lock
+INFO:root:Setting value: test_key = 5
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+INFO:root:Getting value: test_key
+DEBUG:root:Acquiring read lock
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+DEBUG:root:Acquiring read lock
+INFO:root:Setting value: test_key = 5
+DEBUG:root:Releasing write lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Releasing read lock
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 6
+DEBUG:root:Releasing write lock
+DEBUG:root:Acquiring write lock
+INFO:root:Setting value: test_key = 5
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 6
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 6
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 7
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 7
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 6
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 7
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 7
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 8
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 8
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 7
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 8
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 8
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 9
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 9
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 8
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 9
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 9
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write lock
+DEBUG:root:Releasing write lock
+DEBUG:root:Releasing write lock
+INFO:root:Setting value: test_key = 9
+DEBUG:root:Acquiring write lock
+DEBUG:root:Releasing write
